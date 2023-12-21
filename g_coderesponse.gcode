@@ -85,3 +85,27 @@ M190 - Wait for Bed Temperature
 M190 S80 ; Set bed temperature and wait
 
 M400 - Finish Moves
+;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>..
+;Head control 
+G90
+M82
+M106 S0
+M140 S60
+M190 S60
+M104 S210 T0
+M104 S0 T1
+M109 S210 T0
+G21 	; metric values
+M82	; set extruder to absolute mode
+M107	;
+G28 X0 Y0  	; home x-y axes
+G28 Z0	; home z-axis
+G1 Z10.0 F500 ; move plateform down 10 mm
+T0	; switch to right extruder
+G92 E0	; zero extruder
+G1 F200 E6	; extrude 6mm of feed stock
+G92 E0	; zero extruder again
+G1 X50 Y0 F6000 ; wipe
+M117 Print Starting
+
+
